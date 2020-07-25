@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <link
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+      >
+      <link rel="stylesheet" href="main.css">
+  </head>
+    <body>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div id="chat-app" class="card">
+              <div class="card-body">
+                <ul>
+                  <li v-for="m in messages">
+                    {{ m.text }} - {{ m.date }}
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <form>
+                  <input type="text" class="form-control" v-model="message">
+                  <button @click.prevent="sendMessage" type="submit" class="btn btn-dark btn-block">
+                    Enviar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SCRIPTS -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" charset="utf-8"></script>
+      <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
